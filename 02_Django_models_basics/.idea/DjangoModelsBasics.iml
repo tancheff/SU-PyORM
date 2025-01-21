@@ -14,7 +14,7 @@
   </component>
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.12 virtualenv at C:\Users\a1bg537570\PycharmProjects\SU\PyORM\SU-PyORM\DjangoModelsBasics\.venv" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.12 virtualenv at C:\Users\a1bg537570\PycharmProjects\SU\PyORM\SU-PyORM\02_Django_models_basics\.venv" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="PyDocumentationSettings">
