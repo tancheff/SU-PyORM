@@ -9,10 +9,9 @@
 
 ---
 
-### Zip project on Windows (2nd command is with a printed message after execution)
+### Zip project on Windows
 ```bash
    tar.exe -a -cf project.zip main_app orm_skeleton caller.py manage.py requirements.txt
-   tar.exe -a -cf project.zip main_app orm_skeleton caller.py manage.py requirements.txt; if (Test-Path project.zip) {echo "Archive created successfully - project.zip"} else {echo "Failed to create archive!"}
 ```
 
 ---
