@@ -9,9 +9,10 @@
 
 ---
 
-### Zip project on Windows
+### Zip project on Windows (2nd command is with a printed message after execution)
 ```bash
    tar.exe -a -cf project.zip main_app orm_skeleton caller.py manage.py requirements.txt
+   tar.exe -a -cf project.zip main_app orm_skeleton caller.py manage.py requirements.txt; if (Test-Path project.zip) {echo "Archive created successfully - project.zip"} else {echo "Failed to create archive!"}
 ```
 
 ---
@@ -118,7 +119,7 @@ ORM - Object Relational Mapping
 ### Migrations and Admin
 
 1. Django Migrations Advanced
-   - Миграциите ни помагат надграждаме промени в нашите модели
+   - Миграциите ни помагат да надграждаме промени в нашите модели
    - Както и да можем да пазим предишни стейтове на нашата база
    - Команди:
      - makemigrations
@@ -136,7 +137,7 @@ ORM - Object Relational Mapping
    - Когато например добавим ново поле, искаме да го попълним с данни на база на вече съществуващи полета, използваме data migrations
    - RunPython
      - викайки функция през него получаваме достъп до всички апове и техните модели (първи параметър), Scheme Editor (втори параметър)
-     - добра практика е да подаваме фунцкия и reverse функция, за да можем да връяа безпроблемно миграции
+     - добра практика е да подаваме фунцкия и reverse функция, за да можем да връщаме безпроблемно миграции
    - Scheme Editor - клас, който превръща нашия пайтън код в SQL, ползваме го когато правим create, alter и delete на таблица
      - използвайки RunPython в 95% от случаите няма да ни се наложи да ползавме Scheme Editor, освен, ако не правим някаква временна таблица
        индекси или промяна на схемата на таблицата
