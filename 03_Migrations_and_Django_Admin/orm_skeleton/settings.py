@@ -75,11 +75,10 @@ WSGI_APPLICATION = 'orm_skeleton.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "orm_3_migrations_and_django_admin",
+        "NAME": "orm_03_migrations_and_django_admin",
         "USER": "postgres-user",
         "PASSWORD": "password",
         "HOST": "localhost",
