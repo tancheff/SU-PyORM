@@ -17,6 +17,13 @@
 
 ---
 
+### Zip project on Windows (with a printed message after execution)
+```bash
+   tar.exe -a -cf project.zip main_app orm_skeleton caller.py manage.py requirements.txt; if (Test-Path project.zip) {echo "Archive created successfully - project.zip"} else {echo "Failed to create archive!"}
+```
+
+---
+
 ### Creation of Venv
 ```bash
 	python3 -m venv ./venv
