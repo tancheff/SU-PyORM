@@ -9,6 +9,15 @@ django.setup()
 
 # Create queries within functions
 
-from main_app.models import Shoe
-print(Shoe.objects.values_list('brand', flat=True).distinct())
+from main_app.models import Shoe, Student, Person
+
+# print(Shoe.objects.values_list('brand', flat=True).distinct())
+#
+# print(Person.objects.all())
+
+
+print(Shoe.objects.all())
+
+
+
 
