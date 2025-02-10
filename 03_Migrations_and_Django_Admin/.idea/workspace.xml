@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a40575f0-3c1d-4f54-9d1e-765b71a26ead" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0005_movie.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0006_student.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0007_supplier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0008_course.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0009_person.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0010_migrate_age_group.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0011_item.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0012_migrate_item_rarity.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0013_smartphone.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0014_migrate_phone_price.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0015_migrate_phone_category.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0016_order.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_app/migrations/0017_migrate_status_warranty.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/03_Migrations_and_Django_Admin.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/03_Migrations_and_Django_Admin.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e633c12d-2dbc-48af-beb5-87c09260df94.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e633c12d-2dbc-48af-beb5-87c09260df94.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e633c12d-2dbc-48af-beb5-87c09260df94/storage_v2/_src_/database/orm_03_migrations_and_django_admin.Jv2t_Q/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e633c12d-2dbc-48af-beb5-87c09260df94/storage_v2/_src_/database/orm_03_migrations_and_django_admin.Jv2t_Q/schema/public.abK9xQ.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/caller.py" beforeDir="false" afterPath="$PROJECT_DIR$/caller.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/project.zip" beforeDir="false" afterPath="$PROJECT_DIR$/project.zip" afterDir="false" />
-    </list>
+    <list default="true" id="a40575f0-3c1d-4f54-9d1e-765b71a26ead" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,6 +118,7 @@
       <workItem from="1738763092105" duration="10869000" />
       <workItem from="1738833038610" duration="18050000" />
       <workItem from="1738921537579" duration="8325000" />
+      <workItem from="1739189430192" duration="1714000" />
     </task>
     <servers />
   </component>

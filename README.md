@@ -41,6 +41,22 @@
 
 ---
 
+### requirements.txt
+
+```bash
+pip install -r requirements.txt
+```
+```bash
+pip install --upgrade -r requirements.txt
+```
+```bash
+pip list --outdated
+```
+```bash
+pip freeze
+```
+---
+
 # Helpers
 
 - [Populate Django DB Script](https://github.com/DiyanKalaydzhiev23/PopulateDjangoModel)
