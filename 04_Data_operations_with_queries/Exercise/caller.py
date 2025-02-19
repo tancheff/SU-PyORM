@@ -239,9 +239,7 @@ def update_characters() -> None:
                                   ['class_name', 'level', 'intelligence', 'hit_points', 'dexterity', 'inventory'])
 
 def fuse_characters(first_character: Character, second_character: Character):
-    inventory_item = ""
-
-    if first_character.class_name == "Mage" or first_character.class_name == "Scout":
+    if first_character.class_name in ["Mage", "Scout"]:
         inventory_item = "Bow of the Elven Lords, Amulet of Eternal Wisdom"
     else:
         inventory_item = "Dragon Scale Armor, Excalibur"
