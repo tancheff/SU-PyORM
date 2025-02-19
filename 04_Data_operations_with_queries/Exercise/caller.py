@@ -7,7 +7,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "orm_skeleton.settings")
 django.setup()
 
 # Import your models here
-from main_app.models import Pet, Artifact, Location
+from main_app.models import Pet, Artifact, Location, Car
 
 
 # Create queries within functions
@@ -77,14 +77,30 @@ def get_capitals() -> QuerySet:
 def delete_first_location() -> None:
     Location.objects.filter(pk=1).delete()
 
+# -------------------------- 4. Car --------------------------
+# --- helper method ---
+# def create_car(model, year, color, price) -> None:
+#     car = Car.objects.create(model=model,
+#               year=year,
+#               color=color,
+#               price=price)
+#
+# create_car('Mercedes C63 AMG','2019','white','120000.00')
+# create_car('Audi Q7 S line','2023','black','183900.00')
+# create_car('Chevrolet Corvette','2021','dark grey','199999.00')
+
+def apply_discount() -> None:
+    car_model = Car.objects.all()
+
+    for car in car_model:
+        car.price_with_discount = float(car.price) * (1 - car.percentage_from_year())
+        # car.save()
+
+    Car.objects.bulk_update(car_model, ['price_with_discount'])
 
 
 
-
-
-
-
-
+apply_discount()
 
 
 

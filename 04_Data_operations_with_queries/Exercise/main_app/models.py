@@ -17,3 +17,19 @@ class Location(models.Model):
     population = models.PositiveIntegerField()
     description = models.TextField()
     is_capital = models.BooleanField(default=False)
+
+class Car(models.Model):
+    model = models.CharField(max_length=40)
+    year = models.PositiveIntegerField()
+    color = models.CharField(max_length=40)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    price_with_discount = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
+
+    def percentage_from_year(self) -> float:
+        percentage = 0.00
+        year = str(self.year)
+
+        for i in range(0, len(year)):
+            percentage += int(year[i])
+
+        return percentage/100
