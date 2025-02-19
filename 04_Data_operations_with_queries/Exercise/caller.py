@@ -261,29 +261,13 @@ def fuse_characters(first_character: Character, second_character: Character):
     second_character.delete()
 
 def grand_dexterity():
-    all_characters = Character.objects.all()
-
-    for char in all_characters:
-        char.dexterity = 30
-
-    Character.objects.bulk_update(all_characters, ['dexterity'])
+    Character.objects.update(dexterity=30)
 
 def grand_intelligence():
-    all_characters = Character.objects.all()
-
-    for char in all_characters:
-        char.intelligence = 40
-
-    Character.objects.bulk_update(all_characters, ['intelligence'])
+    Character.objects.update(intelligence=40)
 
 def grand_strength():
-    all_characters = Character.objects.all()
-
-    for char in all_characters:
-        char.strength = 50
+    Character.objects.update(strength=50)
 
 def delete_character():
-    Character.objects.filter(inventory="").delete()
-
-
-delete_character()
+    Character.objects.filter(inventory="The inventory is empty").delete()
