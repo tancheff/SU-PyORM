@@ -95,7 +95,7 @@ def order_books_by_year() -> str:
     #
     # return "\n".join(books_info)
 
-    return "\n".join(f"{book.publication_year} year: {book.title} by {book.author}"
+    return "\n".join(f"{book.publication_year} year: {str(book)}"
                      for book in Book.objects.order_by('publication_year', 'title'))
 
 # print(order_books_by_year())
