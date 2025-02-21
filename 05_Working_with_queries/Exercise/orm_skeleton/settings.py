@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-cd%2g!p_@ut(kc8)%bd9_*@)i@kff^orkvy=!c#i!l+ak98)%0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -75,10 +75,17 @@ WSGI_APPLICATION = 'orm_skeleton.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
-        "NAME": "orm_4_data_operations",
+        "NAME": "05_orm_django_queries",
         "USER": "postgres-user",
         "PASSWORD": "password",
         "HOST": "localhost",

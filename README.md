@@ -378,17 +378,33 @@ LOGGING = {
 
 
 3. Lookup keys
-   - Използват се във filter, exclude, get;
-   - __exact __iexact - матчва точно;
-   - __contains __icontains - проверява дали съдържа;
-   - __startswith __endswith
+   - Използват се във *filter*, *exclude*, *get*:
+
+   - __exact (case sensitive) |  __iexact (case insensitive) - матчва точно;
+      --> SQL Equivalent: WHERE field LIKE 'value';
+
+   - __contains (case sensitive) |  __icontains (case insensitive) - проверява дали съдържа;
+      --> SQL Equivalent: WHERE field = '%value%';
+
+   - __startswith | __endswith
+         --> SQL Equivalent: WHERE field = 'value%';
+         --> SQL Equivalent: WHERE field = '%value';
+
    - __gt __gte
+         --> SQL Equivalent: WHERE field > INT;
+         --> SQL Equivalent: WHERE field >= INT;
+
    - __lt __lte
-   - __range=(2, 5) - both inclusive
+         --> SQL Equivalent: WHERE field < INT;
+         --> SQL Equivalent: WHERE field <= INT;
+
+   - __range=(X, Y) - both inclusive
+         --> SQL Equivalent: WHERE field BETWEEN X AND Y;
+
 
 4. Bulk methods
    - използват се, за да извършим операции върху много обекти едновременно
-   - bulk_create - създава множество обекти навъеднъж;
+   - bulk_create - създава множество обекти наведнъж;
    - filter().update()
    - filter().delete()
 
