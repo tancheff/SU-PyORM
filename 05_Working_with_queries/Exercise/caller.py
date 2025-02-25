@@ -1,8 +1,7 @@
 import os
 from typing import List
 import django
-from django.db.models import Case, When, Value
-
+from django.db.models import Case, When, Value, QuerySet
 
 # Set up Django
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "orm_skeleton.settings")
@@ -255,8 +254,41 @@ def set_new_locations() -> None:
         )
     )
 
+# ------------- 6. Workout -------------
+def show_workouts() -> str:
+    workouts = Workout.objects.filter(workout_type__in=['Calisthenics', 'CrossFit']).order_by('id')
 
+    return "\n".join([f"{w.name} from {w.workout_type} type has {w.difficulty} difficulty!" for w in workouts])
 
+def get_high_difficulty_cardio_workouts():
+    workouts = Workout.objects.filter(workout_type='Cardio', difficulty='High').order_by('instructor')
+
+    return workouts
+
+def set_new_instructors() -> None:
+    Workout.objects.update(
+        instructor=Case(
+            When(workout_type='Cardio', then=Value('John Smith')),
+            When(workout_type='Strength', then=Value('Michael Williams')),
+            When(workout_type='Yoga', then=Value('Emili Johnson')),
+            When(workout_type='CrossFit', then=Value('Sarah Davis')),
+            When(workout_type='Calisthenics', then=Value('Chris Heria'))
+        )
+    )
+
+def set_new_duration_times() -> None:
+    Workout.objects.update(
+        duration=Case(
+            When(instructor='John Smith', then=Value('15 minutes')),
+            When(instructor='Sarah Davis', then=Value('30 minutes')),
+            When(instructor='Chris Heria', then=Value('45 minutes')),
+            When(instructor='Michael Williams', then=Value('1 hour')),
+            When(instructor='Emily Johnson', then=Value('1 hour 30minutes'))
+        )
+    )
+
+def delete_workouts() -> None:
+    Workout.objects.exclude(workout_type__in=['Strength', 'Calisthenics']).delete()
 
 
 
