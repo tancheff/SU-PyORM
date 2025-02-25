@@ -30,13 +30,13 @@ def bulk_create_arts(first_art: ArtworkGallery, second_art: ArtworkGallery) -> N
 def delete_negative_created_arts() -> None:
     ArtworkGallery.objects.filter(rating__lt=0).delete()
 
-# artwork1 = ArtworkGallery(artist_name='Vincent van Gogh', art_name='Starry Night', rating=4, price=1200000.0)
-# artwork2 = ArtworkGallery(artist_name='Leonardo da Vinci', art_name='Mona Lisa', rating=5, price=1500000.0)
+artwork1 = ArtworkGallery(artist_name='Vincent van Gogh', art_name='Starry Night', rating=4, price=1200000.0)
+artwork2 = ArtworkGallery(artist_name='Leonardo da Vinci', art_name='Mona Lisa', rating=5, price=1500000.0)
 
-# # Bulk saves the instances
-# bulk_create_arts(artwork1, artwork2)
-# print(show_highest_rated_art())
-# print(ArtworkGallery.objects.all())
+# Bulk saves the instances
+bulk_create_arts(artwork1, artwork2)
+print(show_highest_rated_art())
+print(ArtworkGallery.objects.all())
 
 # ------------- 2. Laptop -------------
 def show_the_most_expensive_laptop() -> str:
@@ -73,47 +73,47 @@ def update_operation_systems() -> None:
 def delete_inexpensive_laptops() -> None:
     Laptop.objects.filter(price__lt=1200).delete()
 
-# laptop1 = Laptop(
-#     brand='Asus',
-#     processor='Intel Core i5',
-#     memory=8,
-#     storage=256,
-#     operation_system='MacOS',
-#     price=899.99
-# )
-# laptop2 = Laptop(
-#     brand='Apple',
-#     processor='Chrome OS',
-#     memory=16,
-#     storage=256,
-#     operation_system='MacOS',
-#     price=1399.99
-# )
-# laptop3 = Laptop(
-#     brand='Lenovo',
-#     processor='AMD Ryzen 7',
-#     memory=12,
-#     storage=256,
-#     operation_system='Linux',
-#     price=999.99,
-# )
-#
-# # Create a list of instances
-# laptops_to_create = [laptop1, laptop2, laptop3]
-#
-# # Use bulk_create to save the instances
-# bulk_create_laptops(laptops_to_create)
+laptop1 = Laptop(
+    brand='Asus',
+    processor='Intel Core i5',
+    memory=8,
+    storage=256,
+    operation_system='MacOS',
+    price=899.99
+)
+laptop2 = Laptop(
+    brand='Apple',
+    processor='Chrome OS',
+    memory=16,
+    storage=256,
+    operation_system='MacOS',
+    price=1399.99
+)
+laptop3 = Laptop(
+    brand='Lenovo',
+    processor='AMD Ryzen 7',
+    memory=12,
+    storage=256,
+    operation_system='Linux',
+    price=999.99,
+)
 
-# update_to_512_GB_storage()
-# update_to_16_GB_memory()
-# update_operation_systems()
-#
-# # Retrieve 2 laptops from the database
-# asus_laptop = Laptop.objects.filter(brand__exact='Asus').get()
-# lenovo_laptop = Laptop.objects.filter(brand__exact='Lenovo').get()
-#
-# print(asus_laptop.storage)
-# print(lenovo_laptop.operation_system)
+# Create a list of instances
+laptops_to_create = [laptop1, laptop2, laptop3]
+
+# Use bulk_create to save the instances
+bulk_create_laptops(laptops_to_create)
+
+update_to_512_GB_storage()
+update_to_16_GB_memory()
+update_operation_systems()
+
+# Retrieve 2 laptops from the database
+asus_laptop = Laptop.objects.filter(brand__exact='Asus').get()
+lenovo_laptop = Laptop.objects.filter(brand__exact='Lenovo').get()
+
+print(asus_laptop.storage)
+print(lenovo_laptop.operation_system)
 
 # ------------- 3. Chess Player -------------
 def bulk_create_chess_players(args: List[ChessPlayer]) -> None:
@@ -144,33 +144,33 @@ def grand_chess_title_regular_player() -> None:
     ChessPlayer.objects.filter(rating__lte=2199)
 
 
-# player1 = ChessPlayer(
-#     username='Player1',
-#     title='no title',
-#     rating=2200,
-#     games_played=50,
-#     games_won=20,
-#     games_lost=25,
-#     games_drawn=5,
-# )
-# player2 = ChessPlayer(
-#     username='Player2',
-#     title='IM',
-#     rating=2350,
-#     games_played=80,
-#     games_won=40,
-#     games_lost=25,
-#     games_drawn=15,
-# )
+player1 = ChessPlayer(
+    username='Player1',
+    title='no title',
+    rating=2200,
+    games_played=50,
+    games_won=20,
+    games_lost=25,
+    games_drawn=5,
+)
+player2 = ChessPlayer(
+    username='Player2',
+    title='IM',
+    rating=2350,
+    games_played=80,
+    games_won=40,
+    games_lost=25,
+    games_drawn=15,
+)
 
-# # Call the bulk_create_chess_players function
-# bulk_create_chess_players([player1, player2])
+# Call the bulk_create_chess_players function
+bulk_create_chess_players([player1, player2])
 
-# # Call the delete_chess_players function
-# delete_chess_players()
-#
-# # Check that the players are deleted
-# print("Number of Chess Players after deletion:", ChessPlayer.objects.count())
+# Call the delete_chess_players function
+delete_chess_players()
+
+# Check that the players are deleted
+print("Number of Chess Players after deletion:", ChessPlayer.objects.count())
 
 # ------------- 4. Meal -------------
 def set_new_chefs() -> None:
@@ -270,7 +270,7 @@ def set_new_instructors() -> None:
         instructor=Case(
             When(workout_type='Cardio', then=Value('John Smith')),
             When(workout_type='Strength', then=Value('Michael Williams')),
-            When(workout_type='Yoga', then=Value('Emili Johnson')),
+            When(workout_type='Yoga', then=Value('Emily Johnson')),
             When(workout_type='CrossFit', then=Value('Sarah Davis')),
             When(workout_type='Calisthenics', then=Value('Chris Heria'))
         )
@@ -283,7 +283,7 @@ def set_new_duration_times() -> None:
             When(instructor='Sarah Davis', then=Value('30 minutes')),
             When(instructor='Chris Heria', then=Value('45 minutes')),
             When(instructor='Michael Williams', then=Value('1 hour')),
-            When(instructor='Emily Johnson', then=Value('1 hour 30minutes'))
+            When(instructor='Emily Johnson', then=Value('1 hour and 30 minutes'))
         )
     )
 
@@ -291,30 +291,36 @@ def delete_workouts() -> None:
     Workout.objects.exclude(workout_type__in=['Strength', 'Calisthenics']).delete()
 
 
+# Create two Workout instances
+workout1 = Workout.objects.create(
+    name="Push-Ups",
+    workout_type="Calisthenics",
+    duration="10 minutes",
+    difficulty="Intermediate",
+    calories_burned=200,
+    instructor="Bob"
+)
 
+workout2 = Workout.objects.create(
+    name="Running",
+    workout_type="Cardio",
+    duration="30 minutes",
+    difficulty="High",
+    calories_burned=400,
+    instructor="Lilly"
+)
 
+# Run the functions
+print(show_workouts())
 
+high_difficulty_cardio_workouts = get_high_difficulty_cardio_workouts()
+for workout in high_difficulty_cardio_workouts:
+    print(f"{workout.name} by {workout.instructor}")
 
+set_new_instructors()
+for workout in Workout.objects.all():
+    print(f"Instructor: {workout.instructor}")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+set_new_duration_times()
+for workout in Workout.objects.all():
+    print(f"Duration: {workout.duration}")

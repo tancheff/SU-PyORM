@@ -14,4 +14,4 @@ class OSChoices(models.TextChoices):
     LINUX = "Linux", "Linux"
     CHROME_OS = "Chrome OS", "Chrome OS"
 
-print(list(LaptopBrandChoice.choices))  # This should now work
+# print(list(LaptopBrandChoice.choices))  # This should now work
