@@ -488,6 +488,14 @@ author = Author.objects.get(id=1)
 author_posts = author.post_set.all()
 ```
 
+- **N.B.!** _set работи само, ако няма предефинирано в модела **related_name=**
+   ```py   
+   class Post(models.Model):
+       title = models.CharField(max_length=200)
+       content = models.TextField()
+       author = models.ForeignKey(Author, on_delete=models.CASCADE, related_name='posts')
+   ```
+
 3. Types of relationships
    - Many-To-One (One-To-Many)
    - Many-To-Many 
