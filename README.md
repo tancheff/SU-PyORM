@@ -336,6 +336,7 @@ related_objects = Order.objects.filter(customer__age__gte=18)
      - python manage.py shell
    - SQL logging
      -  Enable SQL logging
+     -  Добавя се в **settings.py**
 
 ```python
 LOGGING = {
@@ -359,6 +360,13 @@ LOGGING = {
     },
 }
 ```
+
+6. Без добавен SQL Logging можем да видим заявката чрез **.query**:
+```python
+print(table_name.objects.all().query)
+```
+
+
 
 ---
 
