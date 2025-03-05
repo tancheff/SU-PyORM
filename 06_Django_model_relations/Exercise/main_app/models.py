@@ -11,3 +11,14 @@ class Book(models.Model):
 
     def __str__(self):
         return f"{self.title}"
+
+class Song(models.Model):
+    title = models.CharField(max_length=100, unique=True)
+
+    def __str__(self):
+        return f"Song's Title: {self.title}"
+
+class Artist(models.Model):
+    name = models.CharField(max_length=100, unique=True)
+    songs = models.ManyToManyField(to=Song, related_name='artists')
+    # вместо да пишем .artist_set, достъпваме всички артисти чрез .artists
