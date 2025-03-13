@@ -8,7 +8,7 @@ django.setup()
 # Import your models here
 
 # Create queries within functions
-from main_app.models import Animal, Mammal, Bird, Reptile, ZooKeeper, Veterinarian
+from main_app.models import Animal, Mammal, Bird, Reptile, ZooKeeper, Veterinarian, ZooDisplayAnimal
 
 # ------------- 1. Zoo Animals -------------
 # Animal.objects.create(name="Nemo", species="Clownfish", birth_date="2019-04-10", sound="Bubbles")
@@ -45,4 +45,30 @@ from main_app.models import Animal, Mammal, Bird, Reptile, ZooKeeper, Veterinari
 # else:
 #     print("ZooDisplayAnimal is not a proxy model.")
 
+# ------------- 4. Zookeeper's Specialty -------------
+# zookeeper = ZooKeeper(first_name="John", last_name="Doe", phone_number="0123456789", specialty="Fishes")
+# zookeeper.full_clean()
+# zookeeper.save()
 
+# ------------- 5. Animal Display System Logic -------------
+# all_animals_info = ZooDisplayAnimal.objects.all()
+# for a in all_animals_info:
+#     print(a.display_info())
+#     print(a.is_endangered())
+
+# ------------- 6. Animal's Age -------------
+# from datetime import date, timedelta
+#
+# lion_birth_date = date.today() - timedelta(days=731)
+# lion = Mammal.objects.create(name="Simba", species="Lion", birth_date=lion_birth_date, sound="Roar", fur_color="Golden")
+# print(f"The lion's age is {lion.age}.")
+#
+# snake_birth_date = date.today() - timedelta(days=30)
+# snake = Reptile.objects.create(name="Kaa", species="Python", birth_date=snake_birth_date, sound="Hiss", scale_type="Scales")
+# print(f"The snake's age is {snake.age}.")
+
+# ------------- 7. Veterinarian Availability -------------
+v1 = Veterinarian.objects.create(first_name="John", last_name="Doe", phone_number="0896625120", license_number="VET123", availability=False)
+print(v1.availability)
+v2 = Veterinarian.objects.create(first_name="Alice", last_name="Johnson", phone_number="0896529728", license_number="VET789")
+print(v2.availability)

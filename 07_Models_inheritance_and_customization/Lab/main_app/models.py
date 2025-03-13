@@ -1,4 +1,9 @@
+from datetime import date
+
+from django.core.exceptions import ValidationError
 from django.db import models
+# from django.db.models.functions import datetime
+
 
 # Create your models here.
 
@@ -17,12 +22,22 @@ from django.db import models
 #     class Meta:
 #         abstract = True
 
-# ------------- 1. Zoo Animals -------------
 class Animal(models.Model):
     name = models.CharField(max_length=100)
     species = models.CharField(max_length=100)
     birth_date = models.DateField()
     sound = models.CharField(max_length=100)
+
+    @property
+    def age(self) -> int:
+        today = date.today()
+        age = today.year - self.birth_date.year
+
+        if (today.month, today.day) < (self.birth_date.month, self.birth_date.day):
+            age -= 1
+
+        return age
+
 
 class Mammal(Animal):
     fur_color = models.CharField(max_length=50)
@@ -33,7 +48,6 @@ class Bird(Animal):
 class Reptile(Animal):
     scale_type = models.CharField(max_length=50)
 
-# ------------- 2. Zoo Employees -------------
 class EmployeeBaseClass(models.Model):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -49,6 +63,7 @@ SPECIALITIES = (
     ("Others", "Others")
 )
 
+
 class ZooKeeper(EmployeeBaseClass):
     class Specialities(models.TextChoices):
         Mammals = "Mammals"
@@ -62,10 +77,39 @@ class ZooKeeper(EmployeeBaseClass):
     def clean(self):
         super().clean()
 
+        if self.specialty not in self.Specialities:
+            raise ValidationError("Specialty must be a valid choice.")
+
+
+class BooleanChoiceField(models.BooleanField):
+    def __init__(self, *args, **kwargs):
+        kwargs['choices'] = (
+            (True, "Available"),
+            (False, "Not Available")
+        )
+        kwargs['default'] = True
+
+        super().__init__(*args, **kwargs)
+
+
 class Veterinarian(EmployeeBaseClass):
     license_number = models.CharField(max_length=10)
+    availability = BooleanChoiceField()
 
-# ------------- 3. Animal Display System -------------
+    def is_available(self) -> bool:
+        return self.availability
+
+
 class ZooDisplayAnimal(Animal):
     class Meta:
         proxy = True
+
+    def display_info(self) -> str:
+        return (f"Meet {self.name}! Species: {self.species}, born {self.birth_date}. "
+                f"It makes a noise like '{self.sound}'.")
+
+    def is_endangered(self) -> str:
+        if self.species in ["Cross River Gorilla", "Orangutan", "Green Turtle"]:
+            return f"{self.species} is at risk!"
+
+        return f"{self.species} is not at risk."
