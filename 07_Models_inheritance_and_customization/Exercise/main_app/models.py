@@ -203,7 +203,7 @@ class SpecialReservation(BaseReservation):
 
         super().save(*args, **kwargs)
 
-        return f"Regular reservation for room {self.room.number}"
+        return f"Special reservation for room {self.room.number}"
 
 
 
