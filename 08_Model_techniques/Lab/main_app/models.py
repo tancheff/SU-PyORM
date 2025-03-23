@@ -1,5 +1,7 @@
 from django.core.validators import MinLengthValidator, MaxLengthValidator, MinValueValidator, MaxValueValidator
 from django.db import models
+from django.db.models import Index
+
 from main_app.validators import validate_menu_categories
 
 # Create your models here.
@@ -60,5 +62,54 @@ class RestaurantReview(models.Model):
         abstract = True
 
 # ------------- 4. Restaurant Review Types -------------
-class RestaurantReviewTypes(models.Model):
+class RegularRestaurantReview(RestaurantReview):
     pass
+
+class FoodCriticRestaurantReview(RestaurantReview):
+    food_critic_cuisine_area = models.CharField(max_length=100)
+
+    class Meta(RestaurantReview.Meta):
+        verbose_name = 'Food Critic Review'
+        verbose_name_plural = 'Food Critic Reviews'
+
+# ------------- 5. Menu Review -------------
+class MenuReview(RestaurantReview):
+    restaurant = None
+    reviewer_name = models.CharField(max_length=100)
+    menu = models.ForeignKey(to=Menu, on_delete=models.CASCADE)
+    review_content = models.TextField()
+    rating = models.PositiveIntegerField(
+        validators=[
+            MaxValueValidator(5)
+        ]
+    )
+
+    class Meta(RestaurantReview.Meta):
+        verbose_name = 'Menu Review'
+        verbose_name_plural = 'Menu Reviews'
+        unique_together = ['reviewer_name', 'menu']
+        indexes = [
+            Index(fields=['menu',], name='main_app_menu_review_menu_id')
+        ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
