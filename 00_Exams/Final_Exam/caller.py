@@ -190,7 +190,7 @@ def get_authors_by_books_count():
 
     return "\n".join(results)
 # --------------------------
-print(get_authors_by_books_count())
+# print(get_authors_by_books_count())
 # --------------------------
 def get_top_bestseller():
     bestseller = Book.objects.filter(is_bestseller=True).order_by('-rating', 'title').first()
