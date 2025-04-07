@@ -24,7 +24,7 @@ class ArtistAdmin(admin.ModelAdmin):
 
 @admin.register(Album)
 class AlbumAdmin(admin.ModelAdmin):
-    list_display = ('title', 'release_date', 'type', 'is_hit', 'label')
+    list_display = ('title', 'release_date', 'description',  'type', 'is_hit', 'label')
     list_filter = ('is_hit', 'type')
     search_fields = ('title', 'label__name')
     readonly_fields = ('created_at',)
