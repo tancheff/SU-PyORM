@@ -152,7 +152,6 @@ def get_labels(search_string=None):
 # print(get_labels(search_string='nonexistent'))
 # --------------------------
 def get_best_label():
-    # Get all labels annotated with their album counts
     labels = Label.objects.annotate(num_of_albums=Count('albums')).order_by('-num_of_albums', 'name')
 
     if not labels.exists():
